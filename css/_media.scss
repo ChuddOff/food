@@ -1,0 +1,205 @@
+@media (max-width: 1440px) {
+    .sidepanel {
+        display: none;
+    }
+    .promotion__timer .timer {
+        margin: 0;
+        padding: 30px 0;
+        flex-wrap: wrap;
+        width: 300px;
+    }
+}
+@media (max-width: 1024px) {
+    .calculating__choose_big {
+        width:100%;
+    }
+    .calculating__choose_medium {
+        width:auto;
+        justify-content: center;
+        gap: 20px;
+    }
+    .order__form {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .order__form img {
+        display: none;
+    }
+    .header__links {
+        display: none;
+    }
+    .header {
+        flex-direction: column;
+        justify-content: space-evenly
+    }
+    .preview__life {
+        margin: 20px 0 0 0;
+        text-align: center;
+    }
+    .header__left-block {
+        min-width: auto;
+    }
+    .tabcontent__descr {
+        position: static;
+        top: 0;
+        right: 0;
+        height: auto;
+        width: auto;
+        margin: 10px;
+        padding: 10px;
+        text-align: center;
+    }
+    .tabcontent {
+        position: static;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: auto;
+
+    }
+    .tabcontent img {
+        padding: 10px;
+    }
+    .tabcontainer {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+    .tabheader__items {
+        padding: 0;
+    }
+    .tabheader {
+        width: 100%;
+    }
+    .offer__text {
+        width: auto;
+        padding: 10px;
+    }
+    .offer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 70px 20px;
+    }
+    .offer .container {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    
+    .offer__text {
+        text-align: center;
+    }
+    .offer__advantages {
+        width: auto;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        padding: 0 50px;
+        margin: 0;
+    }
+    .offer__advantages-text {
+        text-align: center;
+    }
+    .offer__descr {
+        text-align: center;
+    }
+    .offer__action {
+        margin-top: 50px;
+    }
+    .offer__slider {
+        align-items: center;
+        width: 100%;
+    }
+    .calculating__choose {
+        align-items: center;
+        
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    .calculating__total {
+        flex-direction: column;
+        width: auto;
+    }
+    .promotion .container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .promotion__descr {
+        text-align: center;
+    }
+    .promotion__text {
+        text-align: center;
+    }
+    .promotion__timer {
+        text-align: center;
+        .title {
+            text-align: center;
+        }
+    }
+    .promotion {
+        padding: 20px;
+    }
+    .promotion__text {
+        padding: 0 50px;
+        width: auto;
+        text-align: center;
+    }
+    .calculating__field {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .calculating__choose_big {
+        justify-content: center;
+        flex-direction: column
+    }
+    
+    .calculating {
+        padding: 70px 0;
+    }
+    .bgc_y {
+        display: none;
+    }
+    .offer__slide {
+        width: 100%;
+    }
+    .modal__dialog {
+        max-width: 100%;
+    }
+    .modal__content {
+        max-width: 100%;
+        padding: 10px;
+    }
+    .modal__content form {
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    .modal__title {
+        max-width: 70%;
+        margin: 0;
+        display: block;
+    }
+    .modal__input {
+        margin: 0;
+    }
+    .modal .btn {
+        margin: 0;
+        padding: 0;
+    }
+    .modal {
+        width: 100%;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+    }
+    .calculating__divider {
+        width: 100%;
+    }
+    .divider {
+        width: 100%;
+    }
+}
