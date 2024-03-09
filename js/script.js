@@ -126,6 +126,7 @@
     }
     function setIndex() {
         current.innerHTML = `${index}`.toString().padStart(2, "0");
+        console.log(index);
     }
 
     function hideel () {
@@ -152,11 +153,15 @@
     
     slider_counter.addEventListener("click", (e) => {
         if (e.target.matches(".offer__slider-prev") || e.target.parentElement.matches(".offer__slider-prev")) {
+            console.log(index);
             // index--;
             index = --index == 0 ? index = slide_count : index;
+            console.log(index);
         }
-        if (e.target.matches(".offer__slider-next") || e.target.parentElement.matches(".offer__slider-next")) {
+        else if (e.target.matches(".offer__slider-next") || e.target.parentElement.matches(".offer__slider-next")) {
             index = ++index == (slide_count + 1) ? index = 1 : index;
+        } else {
+            return
         }
         
         setIndex();
@@ -179,22 +184,23 @@
         transform = +transform.split('(')[1].split('p')[0];
     })
 
-    slider.addEventListener("touchstart", (e) => {
+    slider_wrapper.addEventListener("touchstart", (e) => {
         slider_wrapper.style.transition = "0s";
         touchstartX = e.changedTouches[0].screenX;
+        document.body.style.overflow = 'hidden';
     })
 
-    slider.addEventListener("touchmove", (e) => {
+    slider_wrapper.addEventListener("touchmove", (e) => {
         touchendX = e.changedTouches[0].screenX;
         changex = touchendX - touchstartX;
         slider_wrapper.style.transform = `translateX(${transform + changex}px)`;
     })
-    slider.addEventListener("touchend", (e) => {
+    slider_wrapper.addEventListener("touchend", (e) => {
         slider_wrapper.style.transition = "0.5s all";
         transform = slider_wrapper.style.transform || "translateX(0px)";
         transform = +transform.split('(')[1].split('p')[0];
         // slider_wrapper.style.transition = "0.5s all";
-        if (Math.abs(changex) < (ingwidth / 2)) {
+        if (Math.abs(changex) < (ingwidth / 4) && changex!=0) {
             slider_wrapper.style.transform = `translateX(${transform - changex}px)`;
         } else if (changex < 0 && index < 4) {
             slider_wrapper.style.transform = `translateX(${transform - changex - ingwidth}px)`;
@@ -213,8 +219,8 @@
         }
         transform = slider_wrapper.style.transform || "translateX(0px)";
         transform = +transform.split('(')[1].split('p')[0];
-        // slider_wrapper.style.transform = `translateX(-${ingwidth * (index - 1)}px)`;
-        // slider_wrapper.style.transition = "0";
+        document.body.style.overflow = 'auto';
+        changex = 0;
     })
 
     point.innerHTML = "";
