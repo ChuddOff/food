@@ -313,4 +313,39 @@
         })
     }
     calcCal();
+
+
+    const form = document.querySelector('#user');
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const name = document.querySelector('#name').value;
+        const phone = document.querySelector('#phone').value;
+
+        document.querySelector('.modal').style.display = 'none';
+        document.body.style.overflow = "";
+        document.querySelector('#name').value = '';
+        document.querySelector('#phone').value = '';
+
+        try {
+            const fet = await fetch('/api/user', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name,
+                    phone
+                })
+            })
+            if (fet.ok) {
+                console.log("Всё занесено")
+            } else {
+                console.log("Всё не занесено")
+            }
+        }
+        catch (e) {
+            console.log('Ошибка при отправке данных', e);
+        }
+    })
 })
