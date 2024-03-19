@@ -1,38 +1,22 @@
 {
-  "version": 2,
+  "version": 1,
   "builds": [
     {
-      "src": "server.js",
+      "src": "index.js",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
-      "src": "/api/(.*)",
-      "dest": "/api/$1.js"
+      "src": "/api/user",
+      "dest": "/api/user.js"
     },
     {
       "src": "/(.*)",
       "dest": "/public/$1"
     }
   ],
-  "headers": [
-    {
-      "source": "/api/(.*)",
-      "headers": [
-        {
-          "key": "Access-Control-Allow-Origin",
-          "value": "*"
-        },
-        {
-          "key": "Access-Control-Allow-Methods",
-          "value": "GET, POST, PUT, DELETE, OPTIONS"
-        },
-        {
-          "key": "Access-Control-Allow-Headers",
-          "value": "Content-Type, Authorization"
-        }
-      ]
-    }
-  ]
+  "env": {
+    "MONGODB_URI": "mongodb+srv://alexeychadov10:haB21vEJTQcATyCr@food.qp0ymcm.mongodb.net/food?retryWrites=true&w=majority"
+  }
 }
