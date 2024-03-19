@@ -9,7 +9,7 @@ app.use(express.static('public'))
 // app.use(bodyParser.json());
 app.use(express.json());
 
-import mongoose from 'mongoose';
+import mongoose, {Model} from 'mongoose';
 
 const uri = "mongodb+srv://alexeychadov10:haB21vEJTQcATyCr@food.qp0ymcm.mongodb.net/food?retryWrites=true&w=majority";
 // const client = new MongoClient(uri, );
@@ -28,6 +28,7 @@ mongoose.connect(
         }
     }
 ).then(()=>console.log('connected')).catch(e=>console.log(e));
+
 
 
 const Schema = new mongoose.Schema({
@@ -54,6 +55,20 @@ async function start(){
     await app.post('/api/user', async (req, res) => {
         try {
             const {name, phone} = req.body;
+
+            const have = await food.findOne({
+                name: name,
+                tel: phone,
+            })
+
+            if (have) {
+                await food.deleteOne({
+                    name: name,
+                    tel: phone,
+                })
+                console.log(food, name, phone)
+                return;
+            }
 
             const user = new food({
                 name: name,
