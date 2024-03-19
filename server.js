@@ -1,7 +1,8 @@
 import express from 'express';
 const app = express();
-const port = 3000;
+const port = 4000;
 import { MongoClient, ServerApiVersion } from  'mongodb';
+import 'dotenv/config'
 
 app.use(express.static('public'))
 // app.use(bodyParser.urlencoded({ extended: true }));
@@ -64,7 +65,7 @@ async function start(){
         }
     })
 
-    await app.listen(port);
+    await app.listen(process.env.PORT || 4000);
 }
 
 start().catch(console.error);
